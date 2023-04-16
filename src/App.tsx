@@ -4,17 +4,32 @@ import './App.sass'
 import Footer from "./components/Footer";
 import PodcastCard from "./components/PodcastCard";
 import {defaultPodcasts} from "./defaultPodcasts";
+import Loader from "./components/Loader";
+import {getPodcasts} from "./apiCalls";
+import Categories from "./components/Categories";
 
 function App() {
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
+    const [loading, setLoading] = useState(true)
     const [podcasts, setPodcasts] = useState(defaultPodcasts);
+
+    const loadItems = (showLoader: boolean) => {
+        if (showLoader) {
+            setLoading(true);
+        }
+        getPodcasts().then(data => {
+            setPodcasts(data)
+            setLoading(false)
+        })
+    }
+
     useEffect(() => {
         if (podcasts === defaultPodcasts) {
-            fetch('http://localhost:8000/random-week').then(res => res.json())
-                .then(data => setPodcasts(data))
+            loadItems(true);
         }
     });
+
 
     return (
         <div className="App">
@@ -29,11 +44,26 @@ function App() {
                         <a href="#">GitHub</a>
                     </nav>
                 </header>
-                <main className="my-8 flex gap-4">
-                    {podcasts ? podcasts.map((val, idx) =>
-                        <PodcastCard weekday={weekdays[idx]} description={val.description} id={val.podcast_id}
-                                     image={val.image} url={""} title={val.title} category={val.category}/>) : null}
+                <main className="my-8 grid grid-cols-7 gap-4 w-full">
+                    {loading ?
+                        <Loader/> :
+                        <>
+                            {
+                                podcasts ? podcasts.map((val, idx) =>
+                                    <PodcastCard weekday={weekdays[idx]} description={val.description}
+                                                 id={val.podcast_id}
+                                                 image={val.image} url={""} title={val.title}
+                                                 category={val.category}/>) : null}
+                        </>}
                 </main>
+                <div className="flex justify-center items-center">
+                    <button className="bg-red-500 text-white text-lg px-4 py-2 rounded-lg mb-4" type="button"
+                            onClick={() => loadItems(false)}>Load More
+                    </button>
+                </div>
+                <div className="">
+                    <Categories/>
+                </div>
                 <Footer/>
             </div>
         </div>
