@@ -35,8 +35,11 @@ export default function PodcastCard({
     url: string,
     category: string[]
 }) {
+
+    const titleClass = title.length > 35 ? "text-md" : "text-lg"
+
     return (
-        <Card className="w-full flex justify-between flex-column max-w-[26rem] h-[32rem] shadow-lg">
+        <Card className="w-full flex justify-between flex-column max-w-[26rem] h-[34rem] shadow-lg">
             <div>
                 <CardHeader
                     variant="gradient"
@@ -57,18 +60,21 @@ export default function PodcastCard({
                             className="mb-4 rounded-lg"
                         />
                         <div className="flex items-center justify-between mb-4">
-                            <Typography variant="h6" color="blue-gray" className="font-medium">
+                            <p className={"font-medium " + titleClass}>
                                 {title}
-                            </Typography>
+                            </p>
                         </div>
                     </div>
                     <div className="flex flex-wrap gap-1">{
-                        category.map((val, idx) => (
-                            <span key={idx}
-                                  className="text-xs p-1 uppercase rounded bg-gray-50 mr- border text-gray">
+                        category.map((val, idx) => {
+                            if (idx < 3) {
+                                return (
+                                    <span key={idx}
+                                          className="text-xs p-1 uppercase rounded bg-gray-50 mr- border text-gray">
                                 {val}
-                            </span>
-                        ))
+                            </span>)
+                            }
+                        })
                     }</div>
                 </CardBody>
             </div>
