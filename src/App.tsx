@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import logo from './assets/logo.png'
 import './App.sass'
 import Footer from "./components/Footer";
@@ -6,13 +6,17 @@ import PodcastCard from "./components/PodcastCard";
 import {defaultPodcasts} from "./defaultPodcasts";
 import Loader from "./components/Loader";
 import {getPodcasts} from "./apiCalls";
-import Categories from "./components/Categories";
+import Index from "./components/Categories";
+import {useErrorBoundary} from "react-error-boundary";
+import {Typography} from "@material-tailwind/react";
 
 function App() {
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     const [loading, setLoading] = useState(true)
     const [podcasts, setPodcasts] = useState(defaultPodcasts);
+
+    const {showBoundary} = useErrorBoundary()
 
     const loadItems = (showLoader: boolean) => {
         if (showLoader) {
@@ -21,7 +25,7 @@ function App() {
         getPodcasts().then(data => {
             setPodcasts(data)
             setLoading(false)
-        })
+        }).catch(err => showBoundary(err))
     }
 
     useEffect(() => {
@@ -62,7 +66,20 @@ function App() {
                     </button>
                 </div>
                 <div className="">
-                    <Categories/>
+                    <Index/>
+                </div>
+                <div className="text-center py-8 w-1/2 m-auto">
+                    <Typography variant="h3" color="gray" className="font-medium mb-6">Info</Typography>
+                    <Typography className="pb-6">
+                        If you're like me, you listen to podcasts as a way to doze off into the night. Sometimes, it
+                        takes a bit longer, so the once-a-week episode is over and you've got nothing to listen to for
+                        tommorow.
+                    </Typography>
+                    <Typography>
+                        That's where this website comes in. You can search for podcasts by the weekday, where new
+                        episodes are released (and category, to find something you actually might like...). This way you
+                        have a new podcast episode to listen to every day.
+                    </Typography>
                 </div>
                 <Footer/>
             </div>
