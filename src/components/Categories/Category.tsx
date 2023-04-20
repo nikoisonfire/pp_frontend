@@ -1,15 +1,15 @@
 import React from 'react';
+import {useGlobal} from "../../state";
 
 function Category({
                       category,
                       bgColor,
-                      callback,
                   }: {
     category: string,
     bgColor: string
-    callback: () => void
 }) {
     const [selected, setSelected] = React.useState(false);
+    const toggleCategory = useGlobal(state => state.toggleCategory);
 
     const selectedColor = "#ffa600";
     const selectedStyle = {
@@ -23,7 +23,7 @@ function Category({
            style={selected ? selectedStyle : {backgroundColor: bgColor}}
            onClick={() => {
                setSelected(!selected);
-               callback()
+               toggleCategory(category);
            }}
         >
             {category}
