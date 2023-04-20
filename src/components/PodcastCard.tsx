@@ -17,26 +17,23 @@ import {
     TvIcon,
     FireIcon, MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
+import {Podcast} from "../index";
+import {useGlobal} from "../state";
 
-export default function PodcastCard({
-                                        id,
-                                        title,
-                                        description,
-                                        image,
-                                        weekday,
-                                        url,
-                                        category,
-                                    }: {
-    id: number,
-    title: string,
-    description: string,
-    image: string,
-    weekday: string,
-    url: string,
-    category: string[]
-}) {
+// TODO: Add URL to podcast
+export default function PodcastCard(podcast: Podcast) {
 
+    const {
+        podcast_id,
+        title,
+        description,
+        image,
+        weekday,
+        category,
+    } = podcast;
     const titleClass = title.length > 35 ? "text-md" : "text-lg"
+
+    const togglePodcast = useGlobal(state => state.togglePodcast)
 
     return (
         <Card className="w-full flex justify-between flex-column max-w-[26rem] h-[34rem] shadow-lg">
@@ -80,7 +77,8 @@ export default function PodcastCard({
             </div>
             <CardFooter className="pt-3 flex flex-wrap justify-between gap-2 items-center">
                 <div className="w-full flex gap-2">
-                    <IconButton color="red"><HeartIcon className="h-5 w-5"/></IconButton>
+                    <IconButton color="red" onClick={() => togglePodcast(podcast)}><HeartIcon
+                        className="h-5 w-5"/></IconButton>
                     <Button color="blue-gray" size="sm">more</Button>
                 </div>
             </CardFooter>

@@ -9,6 +9,7 @@ import {getPodcasts} from "./apiCalls";
 import Index from "./components/Categories";
 import {useErrorBoundary} from "react-error-boundary";
 import {Typography} from "@material-tailwind/react";
+import PodcastList from "./components/PodcastList";
 
 function App() {
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -37,6 +38,7 @@ function App() {
 
     return (
         <div className="App">
+            <PodcastList/>
             <div className="px-8 max-w-[100rem] m-auto">
                 <header className="flex justify-between items-center h-24 mt-8 mb-24">
                     <div className="logo h-full">
