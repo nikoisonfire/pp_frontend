@@ -1,15 +1,31 @@
 import React from 'react';
 import {useGlobal} from "../state";
 import podcast_icon from "../assets/podcast_icon.png";
+import {Podcast} from "../index";
 
 function PodcastList() {
     const podcasts = useGlobal(state => state.selected.podcasts);
+
+    function comparePodcasts(a: Podcast, b: Podcast) {
+        const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        const aIndex = weekdays.indexOf(a.weekday);
+        const bIndex = weekdays.indexOf(b.weekday);
+        console.log(aIndex, bIndex)
+        if (aIndex < bIndex) {
+            return -1;
+        }
+        if (aIndex > bIndex) {
+            return 1;
+        }
+        return 0;
+    }
+
     return (
-        <div className="fixed right-4 bottom-4 flex justify-end flex-wrap">
+        <div className="fixed right-4 z-50 bottom-4 flex justify-end flex-wrap">
             <div className="rounded bg-white p-3 mb-2 w-full">
                 {
-                    podcasts.map((val, idx) =>
-                        <div key={idx} className="flex flex-wrap items-center">
+                    podcasts.sort(comparePodcasts).map((val, idx) =>
+                        <div key={idx} className="mb-4 flex flex-wrap items-center">
                             <img className="w-16 h-16 rounded-full" src={val.image}/>
                             <div className="ml-2">
                                 <p className="text-sm font-bold">{val.weekday}</p>
