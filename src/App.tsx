@@ -10,12 +10,16 @@ import Index from "./components/Categories";
 import {useErrorBoundary} from "react-error-boundary";
 import {Typography} from "@material-tailwind/react";
 import PodcastList from "./components/PodcastList";
+import {useGlobal} from "./state";
+import {Podcast} from "./index";
 
 function App() {
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     const [loading, setLoading] = useState(true)
-    const [podcasts, setPodcasts] = useState(defaultPodcasts);
+    const [podcasts, setPodcasts] = useState<Podcast[]>(defaultPodcasts);
+
+    const categories = useGlobal(state => state.selected.categories);
 
     const {showBoundary} = useErrorBoundary()
 
@@ -23,7 +27,7 @@ function App() {
         if (showLoader) {
             setLoading(true);
         }
-        getPodcasts().then(data => {
+        getPodcasts(categories).then(data => {
             setPodcasts(data)
             setLoading(false)
         }).catch(err => showBoundary(err))
@@ -40,31 +44,23 @@ function App() {
         <div className="App">
             <PodcastList/>
             <div className="px-8 max-w-[100rem] m-auto">
-                <header className="flex justify-between items-center h-24 mt-8 mb-24">
+                <header className="h-24 mt-8 mb-12">
                     <div className="logo h-full">
                         <img src={logo} alt="logo" className="h-full"/>
                     </div>
-                    <nav className="flex items-center gap-2 flex-wrap">
-                        <a href="#">Random</a>
-                        <a href="#">Browse</a>
-                        <a href="#">GitHub</a>
-                    </nav>
                 </header>
-                <main className="my-8 grid grid-cols-7 gap-4 w-full">
-                    {loading ?
-                        <Loader/> :
-                        <>
-                            {
-                                podcasts ? podcasts.map((val, idx) =>
-                                    <PodcastCard weekday={weekdays[idx]} description={val.description}
-                                                 id={val.podcast_id}
-                                                 image={val.image} url={""} title={val.title}
-                                                 category={val.category}/>) : null}
-                        </>}
+                <main className="relative py-5 mb-6">
+                    {loading ? <Loader/> : null}
+                    <div className="grid grid-cols-7 gap-4 w-full">
+                        {
+                            podcasts ? podcasts.map((val, idx) =>
+                                <PodcastCard podcast={val}/>) : null
+                        }
+                    </div>
                 </main>
                 <div className="flex justify-center items-center">
                     <button className="bg-red-500 text-white text-lg px-4 py-2 rounded-lg mb-4" type="button"
-                            onClick={() => loadItems(false)}>Load More
+                            onClick={() => loadItems(true)}>Load More
                     </button>
                 </div>
                 <div className="">
