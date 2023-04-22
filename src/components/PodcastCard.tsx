@@ -21,7 +21,7 @@ import {Podcast} from "../index";
 import {useGlobal} from "../state";
 
 // TODO: Add URL to podcast
-export default function PodcastCard(podcast: Podcast) {
+export default function PodcastCard({podcast}: { podcast: Podcast }) {
 
     const {
         podcast_id,
@@ -36,7 +36,7 @@ export default function PodcastCard(podcast: Podcast) {
     const togglePodcast = useGlobal(state => state.togglePodcast)
 
     return (
-        <Card className="w-full flex justify-between flex-column max-w-[26rem] h-[34rem] shadow-lg">
+        <Card className="w-full flex justify-between flex-column max-w-[26rem] h-[34rem] max-h-[34rem] shadow-lg">
             <div>
                 <CardHeader
                     variant="gradient"
