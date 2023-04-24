@@ -3,7 +3,7 @@ import {getCategories} from "../../apiCalls";
 import {Typography} from "@material-tailwind/react";
 import Category from "./Category";
 
-function Index() {
+function Categories() {
     const [categories, setCategories] = useState<{ [key: string]: number }>({});
 
     function convertRange(value: number, r1: number[], r2: number[]) {
@@ -22,6 +22,7 @@ function Index() {
 
     useEffect(() => {
         if (Object.keys(categories).length === 0) {
+            // @ts-ignore
             getCategories().then(data => setCategories(data.categories));
         }
     });
@@ -30,10 +31,10 @@ function Index() {
         <div className="mb-12">
             <Typography variant="h3" color="gray" className="font-medium mb-6">Categories</Typography>
 
-            <div className={"grid grid-cols-8 gap-4 flex-wrap"}>{
+            <div className={"grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-4 flex-wrap"}>{
                 Object.entries(categories).map(([cat, value]) => {
                     return (
-                        <Category category={cat} bgColor={getColor(value)} callback={() => console.log()}/>
+                        <Category category={cat} bgColor={getColor(value)}/>
                     )
                 })
             }</div>
@@ -48,4 +49,4 @@ function Index() {
     );
 }
 
-export default Index;
+export default Categories;
