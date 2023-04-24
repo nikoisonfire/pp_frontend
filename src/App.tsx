@@ -12,6 +12,7 @@ import {Typography} from "@material-tailwind/react";
 import PodcastList from "./components/PodcastList";
 import {useGlobal} from "./state";
 import {Podcast} from "./index";
+import Categories from "./components/Categories";
 
 function App() {
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -51,7 +52,7 @@ function App() {
                 </header>
                 <main className="relative py-5 mb-6">
                     {loading ? <Loader/> : null}
-                    <div className="grid grid-cols-7 gap-4 w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-10 lg:gap-4 w-full">
                         {
                             podcasts ? podcasts.map((val, idx) =>
                                 <PodcastCard podcast={val}/>) : null
@@ -60,11 +61,11 @@ function App() {
                 </main>
                 <div className="flex justify-center items-center">
                     <button className="bg-red-500 text-white text-lg px-4 py-2 rounded-lg mb-4" type="button"
-                            onClick={() => loadItems(true)}>Load More
+                            onClick={() => loadItems(true)}>Generate new podcasts
                     </button>
                 </div>
                 <div className="">
-                    <Index/>
+                    <Categories/>
                 </div>
                 <div className="text-center py-8 w-1/2 m-auto">
                     <Typography variant="h3" color="gray" className="font-medium mb-6">Info</Typography>
