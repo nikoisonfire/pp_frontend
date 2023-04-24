@@ -37,18 +37,18 @@ function PodcastList() {
     const [hide, setHide] = React.useState(true);
 
     return (
-        <div className="fixed right-4 z-50 bottom-4 flex justify-end flex-wrap ">
+        <div className="fixed right-4 z-50 bottom-4 flex justify-end flex-wrap">
             {podcasts.length > 0 ?
                 <div
-                    className={"rounded bg-white mb-2 w-full rounded-lg shadow-lg popup" + (hide ? " hide" : "")}>
+                    className={"max-w-[22rem] rounded bg-white mb-2 w-full rounded-lg shadow-lg popup" + (hide ? " hide" : "")}>
                     {
                         podcasts.sort(comparePodcasts).map((val, idx) =>
                             <div key={idx}
-                                 className={"flex flex-wrap items-center relative py-2 " + (idx > 0 ? "border-t-2 border-gray-200" : "")}>
-                                <img className="w-12 h-12 rounded-full" src={val.image}/>
+                                 className={"flex items-center relative py-4 sm:py-2 " + (idx > 0 ? "border-t-2 border-gray-200" : "")}>
+                                <img className="w-8 h-8 sm:w-12 sm:h-12 rounded-full" src={val.image}/>
                                 <div className="ml-3">
-                                    <p className="text-sm font-bold text-red-600">{val.weekday}</p>
-                                    <p className="text-md font-light">{truncate(val.title, 45)}</p>
+                                    <p className="text-xs sm:text-sm font-bold text-red-600">{val.weekday}</p>
+                                    <p className="text-sm sm:text-md font-light">{truncate(val.title, 45)}</p>
                                 </div>
                                 <button
                                     type="button"
@@ -59,7 +59,7 @@ function PodcastList() {
                         )
                     }
                 </div> : null}
-            <div className="relative">
+            <div className="relative flex justify-end w-full">
                 <button
                     onClick={() => setHide(!hide)}
                     className="p-0 w-16 h-16 bg-red-600 rounded-full hover:bg-red-700 active:shadow-lg mouse shadow-lg transition ease-in duration-200 focus:outline-none">
@@ -68,7 +68,7 @@ function PodcastList() {
                 {
                     podcasts.length > 0 ?
                         <span
-                            className="absolute left-0 bottom-0 flex items-center justify-center bg-white font-bold rounded-full text-sm h-6 w-6 shadow-lg">{podcasts.length}</span> : null
+                            className="absolute right-12 bottom-0 flex items-center justify-center bg-white font-bold rounded-full text-sm h-6 w-6 shadow-lg">{podcasts.length}</span> : null
                 }</div>
         </div>
     );

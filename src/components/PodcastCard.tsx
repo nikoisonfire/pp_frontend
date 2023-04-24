@@ -19,6 +19,7 @@ import {
 } from "@heroicons/react/24/solid";
 import {Podcast} from "../index";
 import {useGlobal} from "../state";
+import PodcastDetails from "./PodcastDetails";
 
 // TODO: Add URL to podcast
 export default function PodcastCard({podcast}: { podcast: Podcast }) {
@@ -36,11 +37,11 @@ export default function PodcastCard({podcast}: { podcast: Podcast }) {
     const togglePodcast = useGlobal(state => state.togglePodcast)
 
     return (
-        <Card className="w-full flex justify-between flex-column max-w-[26rem] h-[34rem] max-h-[34rem] shadow-lg">
+        <Card className="w-full flex justify-between flex-column max-w-[26rem] sm:h-[34rem] sm:max-h-[34rem] shadow-lg">
             <div>
                 <CardHeader
                     variant="gradient"
-                    color="red"
+                    color="amber"
                     className="grid p-2 place-items-center"
                 >
                             <span className="text-white text-lg block w-full p-2">
@@ -76,10 +77,11 @@ export default function PodcastCard({podcast}: { podcast: Podcast }) {
                 </CardBody>
             </div>
             <CardFooter className="pt-3 flex flex-wrap justify-between gap-2 items-center">
-                <div className="w-full flex gap-2">
-                    <IconButton color="red" onClick={() => togglePodcast(podcast)}><HeartIcon
+                <div className="w-full grid grid-cols-2 gap-2">
+                    <IconButton color="red" className="w-full max-w-full"
+                                onClick={() => togglePodcast(podcast)}><HeartIcon
                         className="h-5 w-5"/></IconButton>
-                    <Button color="blue-gray" size="sm">more</Button>
+                    <PodcastDetails podcast={podcast}/>
                 </div>
             </CardFooter>
         </Card>
