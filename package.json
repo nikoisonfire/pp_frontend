@@ -11,6 +11,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.17",
     "@material-tailwind/react": "^1.4.2",
+    "html-react-parser": "^3.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.4",
