@@ -4,6 +4,7 @@ export interface Podcast {
     description: string;
     image: string;
     weekday: string;
+    url: string;
     category: string[];
 }
 

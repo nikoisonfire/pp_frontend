@@ -5,7 +5,6 @@ import {HeartIcon} from "@heroicons/react/24/solid";
 import {useGlobal} from "../state";
 import parse from "html-react-parser";
 
-// TODO: Work on this tommorow
 function PodcastDetails({podcast}: { podcast: Podcast }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(!open);
@@ -71,7 +70,7 @@ function PodcastDetails({podcast}: { podcast: Podcast }) {
                         </CardBody>
                         <div className="flex justify-end items-center p-4 pt-0 gap-2">
                             <IconButton color="amber" className="px-12"
-                                        onClick={() => togglePodcast(podcast)}>Feed</IconButton>
+                                        onClick={() => window.open(podcast.url, "_blank")}>Link</IconButton>
                             <IconButton color="red" className=""><HeartIcon
                                 className="h-5 w-5"/></IconButton>
 
