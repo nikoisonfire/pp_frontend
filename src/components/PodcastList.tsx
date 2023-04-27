@@ -3,6 +3,9 @@ import {useGlobal} from "../state";
 import podcast_icon from "../assets/podcast_icon.png";
 import {Podcast} from "../index";
 
+import spotify from "../assets/spotify.png";
+import apple from "../assets/apple_podcasts.png";
+
 function PodcastList() {
     const podcasts = useGlobal(state => state.selected.podcasts);
     const togglePodcast = useGlobal(state => state.togglePodcast);
@@ -40,24 +43,39 @@ function PodcastList() {
         <div className="fixed right-4 z-50 bottom-4 flex justify-end flex-wrap">
             {podcasts.length > 0 ?
                 <div
-                    className={"max-w-[22rem] rounded bg-white mb-2 w-full rounded-lg shadow-lg popup" + (hide ? " hide" : "")}>
-                    {
-                        podcasts.sort(comparePodcasts).map((val, idx) =>
-                            <div key={idx}
-                                 className={"flex items-center relative py-4 sm:py-2 " + (idx > 0 ? "border-t-2 border-gray-200" : "")}>
-                                <img className="w-8 h-8 sm:w-12 sm:h-12 rounded-full" src={val.image}/>
-                                <div className="ml-3">
-                                    <p className="text-xs sm:text-sm font-bold text-red-600">{val.weekday}</p>
-                                    <p className="text-sm sm:text-md font-light">{truncate(val.title, 45)}</p>
+                    className={"max-w-[22rem] sm:max-w-[32rem] sm:min-w-[18rem] md:min-w-[20rem] rounded bg-white mb-2 w-full rounded-lg shadow-lg overflow-hidden popup" + (hide ? " hide" : "")}>
+                    <div className={"overflow-scroll max-h-[60vh]"}>
+                        {
+                            podcasts.sort(comparePodcasts).map((val, idx) =>
+                                <div key={idx}
+                                     className={"flex items-center relative py-4 sm:py-4 " + (idx > 0 ? "border-t-2 border-gray-200" : "")}>
+                                    <img className="w-8 h-8 sm:w-12 sm:h-12 rounded-full" src={val.image}/>
+                                    <div className="ml-3">
+                                        <p className="text-xs sm:text-sm font-bold text-red-600">{val.weekday}</p>
+                                        <p
+                                            className="pr-8 sm:pr-0 text-sm sm:text-base font-light">{truncate(val.title, 35)}</p>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        className="absolute right-0 top-0 pt-2 pr-3 text-xs text-gray-500 hover:text-gray-600"
+                                        onClick={() => togglePodcast(val)}>X
+                                    </button>
+                                    <div className="absolute right-1 bottom-1">
+                                        <button
+                                            className="w-6 h-6 mr-2"
+                                            onClick={() => window.open(val.url, "_blank")}>
+                                            <img src={spotify}/>
+                                        </button>
+                                        <button
+                                            className="w-6 h-6"
+                                            onClick={() => window.open(val.url, "_blank")}>
+                                            <img src={apple}/>
+                                        </button>
+                                    </div>
                                 </div>
-                                <button
-                                    type="button"
-                                    className="absolute right-0 top-0 p-3 text-xs text-gray-500 hover:text-gray-600"
-                                    onClick={() => togglePodcast(val)}>X
-                                </button>
-                            </div>
-                        )
-                    }
+                            )
+                        }
+                    </div>
                 </div> : null}
             <div className="relative flex justify-end w-full">
                 <button
