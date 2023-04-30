@@ -5,6 +5,7 @@ export interface Podcast {
     image: string;
     weekday: string;
     url: string;
+    itunes_url: string;
     category: string[];
 }
 
