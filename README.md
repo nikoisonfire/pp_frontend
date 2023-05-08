@@ -1,6 +1,6 @@
 # PodcastPill
 
-Frontend for [PodcastPill](https://github.com/nikoisonfire/PodcastPill)
+Frontend for PodcastPill. Backend can be found here: [PodcastPill](https://github.com/nikoisonfire/PodcastPill)
 
 ## Tech
 

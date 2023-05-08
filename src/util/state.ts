@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import {GlobalState, Podcast} from "./index";
+import {GlobalState, Podcast} from "../index";
 import {devtools} from "zustand/middleware";
 
 export const useGlobal = create<GlobalState>()(devtools((set) => ({

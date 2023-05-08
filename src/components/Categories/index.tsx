@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {getCategories} from "../../apiCalls";
+import {getCategories} from "../../util/apiCalls";
 import {Typography} from "@material-tailwind/react";
 import Category from "./Category";
 
@@ -29,12 +29,16 @@ function Categories() {
 
     return (
         <div className="mb-12">
-            <Typography variant="h3" color="gray" className="font-medium mb-6">Categories</Typography>
+            <Typography variant="h3" color="gray" className="font-medium">Categories</Typography>
+            <Typography color={"gray"} className={" mb-6"}> Click on the categories to toggle them. If the category does
+                not have a podcast
+                for a specific weekday it
+                will be ignored.</Typography>
 
             <div className={"grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-4 flex-wrap"}>{
                 Object.entries(categories).map(([cat, value]) => {
                     return (
-                        <Category category={cat} bgColor={getColor(value)}/>
+                        <Category key={cat} category={cat} bgColor={getColor(value)}/>
                     )
                 })
             }</div>

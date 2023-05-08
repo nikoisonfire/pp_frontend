@@ -1,14 +1,17 @@
-import React, {useEffect} from 'react';
-import {useGlobal} from "../state";
+import React, {useCallback, useEffect} from 'react';
+import {useGlobal} from "../util/state";
 import podcast_icon from "../assets/podcast_icon.png";
 import {Podcast} from "../index";
 
 import spotify from "../assets/spotify.png";
 import apple from "../assets/apple_podcasts.png";
+import {createSpotifyLink} from "../util/util";
 
 function PodcastList() {
     const podcasts = useGlobal(state => state.selected.podcasts);
     const togglePodcast = useGlobal(state => state.togglePodcast);
+
+    const [overflow, setOverflow] = React.useState(false);
 
     useEffect(() => {
         const subtoStore = useGlobal.subscribe((state, prevState) => {
@@ -18,6 +21,20 @@ function PodcastList() {
         });
         return () => subtoStore();
     })
+
+    const scrollCB = useCallback(
+        (node: HTMLDivElement) => {
+            if (node !== null) {
+                if (node.scrollHeight > node.clientHeight) {
+                    setOverflow(true)
+                } else {
+                    setOverflow(false)
+                }
+            }
+        },
+        [podcasts],
+    );
+
 
     function comparePodcasts(a: Podcast, b: Podcast) {
         const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -43,8 +60,12 @@ function PodcastList() {
         <div className="fixed right-4 z-50 bottom-4 flex justify-end flex-wrap">
             {podcasts.length > 0 ?
                 <div
-                    className={"max-w-[22rem] sm:max-w-[32rem] sm:min-w-[18rem] md:min-w-[20rem] rounded bg-white mb-2 w-full rounded-lg shadow-lg overflow-hidden popup" + (hide ? " hide" : "")}>
-                    <div className={"overflow-scroll max-h-[60vh]"}>
+                    className={"max-w-[22rem] sm:max-w-[32rem] sm:min-w-[18rem] md:min-w-[20rem] rounded bg-white mb-2 w-full rounded-lg shadow-lg overflow-hidden popup relative" + (hide ? " hide" : "")}>
+                    <div
+                        className={"absolute top-0 right-0 text-xs text-gray-500 p-1 " + (overflow ? "" : " hidden")}>Hover
+                        over with mouse to scroll
+                    </div>
+                    <div className={"scrollList max-h-[60vh] mt-2"} ref={scrollCB}>
                         {
                             podcasts.sort(comparePodcasts).map((val, idx) =>
                                 <div key={idx}
@@ -63,12 +84,12 @@ function PodcastList() {
                                     <div className="absolute right-1 bottom-1">
                                         <button
                                             className="w-6 h-6 mr-2"
-                                            onClick={() => window.open(val.url, "_blank")}>
+                                            onClick={() => window.open(createSpotifyLink(val.title), "_blank")}>
                                             <img src={spotify}/>
                                         </button>
                                         <button
                                             className="w-6 h-6"
-                                            onClick={() => window.open(val.url, "_blank")}>
+                                            onClick={() => window.open(val.itunes_url, "_blank")}>
                                             <img src={apple}/>
                                         </button>
                                     </div>

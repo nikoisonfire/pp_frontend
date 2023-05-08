@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {Podcast} from "../index";
 import {Button, Card, CardBody, CardFooter, CardHeader, Dialog, IconButton} from "@material-tailwind/react";
 import {HeartIcon} from "@heroicons/react/24/solid";
-import {useGlobal} from "../state";
+import {useGlobal} from "../util/state";
 import parse from "html-react-parser";
+import {getImageUrl} from "../util/apiCalls";
 
 function PodcastDetails({podcast}: { podcast: Podcast }) {
     const [open, setOpen] = useState(false);
@@ -49,7 +50,7 @@ function PodcastDetails({podcast}: { podcast: Podcast }) {
                         </CardHeader>
                         <CardBody className="pod-detail">
                             <div className="w-full pr-8"><img
-                                src={podcast.image}
+                                src={getImageUrl(podcast.podcast_id)}
                                 alt={podcast.title}
                                 className="mb-4 rounded-lg"
                             /></div>

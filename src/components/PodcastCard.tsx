@@ -18,8 +18,9 @@ import {
     FireIcon, MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 import {Podcast} from "../index";
-import {useGlobal} from "../state";
+import {useGlobal} from "../util/state";
 import PodcastDetails from "./PodcastDetails";
+import {getImageUrl} from "../util/apiCalls";
 
 // TODO: Add URL to podcast
 export default function PodcastCard({podcast}: { podcast: Podcast }) {
@@ -51,7 +52,7 @@ export default function PodcastCard({podcast}: { podcast: Podcast }) {
                 <CardBody className="flex justify-between flex-wrap">
                     <div className="w-full">
                         <img
-                            src={image}
+                            src={getImageUrl(podcast_id)}
                             alt={title}
                             width={116}
                             height={116}

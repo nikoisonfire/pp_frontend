@@ -5,12 +5,12 @@ import Footer from "./components/Footer";
 import PodcastCard from "./components/PodcastCard";
 import {defaultPodcasts} from "./defaultPodcasts";
 import Loader from "./components/Loader";
-import {getPodcasts} from "./apiCalls";
+import {getPodcasts} from "./util/apiCalls";
 import Index from "./components/Categories";
 import {useErrorBoundary} from "react-error-boundary";
 import {Typography} from "@material-tailwind/react";
 import PodcastList from "./components/PodcastList";
-import {useGlobal} from "./state";
+import {useGlobal} from "./util/state";
 import {Podcast} from "./index";
 import Categories from "./components/Categories";
 
@@ -55,7 +55,7 @@ function App() {
                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-10 lg:gap-4 w-full">
                         {
                             podcasts ? podcasts.map((val, idx) =>
-                                <PodcastCard podcast={val}/>) : null
+                                <PodcastCard key={val.podcast_id} podcast={val}/>) : null
                         }
                     </div>
                 </main>
