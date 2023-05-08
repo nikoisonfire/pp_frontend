@@ -1,3 +1,6 @@
+declare module '*.jpg';
+declare module '*.png';
+
 export interface Podcast {
     podcast_id: number;
     title: string;
