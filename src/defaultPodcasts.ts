@@ -3,93 +3,100 @@ import {Podcast} from "./index";
 export const defaultPodcasts: Podcast[] = [
     {
         "weekday": "Monday",
-        "description": "Its Super Effective is a weekly Pokémon podcast that covers news and information on Pokémon GO, the Pokémon anime, and the video games (such as Pokemon Scarlet & Pokémon Violet, as well as, Pokémon UNITE and Masters EX). The podcast also talks about battling, Shiny Hunting, the Pokémon TCG, Pokémon merchandise and more! While the show is mostly news focused, we cover listener e-mails, and in-depth Pokémon trivia! Its Super Effective is an award-winning podcast and one of the most downloaded Pokémon-based podcasts on the web. Its Super Effective is dedicated to bringing unique, creative Pokémon content on the internet.",
-        "title": "Its Super Effective: A Pokemon Podcast",
-        "podcast_id": 476983,
-        "image": "https://image.simplecastcdn.com/images/26542098-4d7f-4d78-8eec-7b5075986b15/c15a8dac-47e9-4045-88a1-d4e0c7fdec80/3000x3000/pkmncast-swsh-albumart-01.jpg?aid=rss_feed",
+        "itunes_url": "https://podcasts.apple.com/us/podcast/id997872651?uo=4",
+        "image": "https://megaphone.imgix.net/podcasts/39e539aa-b8ba-11e7-b2d5-9fa8684e5602/image/uploads_2F1551312795529-uvcrwxc232m-e1df6cc62843200d7eed27c7a3904476_2FLocked-On-Saints-Podcast-BG.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+        "description": "Saints Wires Ross Jackson hosts the Locked On Saints Podcast keeping the Who Dat Nation up-to-date with everything you need to know about your beloved New Orleans Saints. This DAILY podcast covers the New Orleans Saints all year round whether theyre playing on Poydras in the Superdome, marching in to someone elses house, and even all throughout the offseason getting you all you need to know about free agency and the draft. Want to keep up with the Black and Gold? Listen for new episodes of Locked on Saints every Monday through Friday. Part of the Locked On Podcast Network. Want to ask questions for the show? Contact host Ross Jackson on Twitter @RossJacksonNOLA. Who Dat?!",
+        "title": "Locked On Saints - Daily Podcast On The New Orleans Saints",
+        "podcast_id": 513739,
+        "url": "http://feeds.megaphone.fm/PPY1810528760",
         "category": [
-            "Leisure",
-            "Games",
-            "Animation",
-            "Manga",
-            "Video Games"
+            "Sports",
+            "Football"
         ]
     },
     {
         "weekday": "Tuesday",
-        "description": "Covering the apocalypse from the left. theinsurgents.substack.com",
-        "title": "The Insurgents",
-        "podcast_id": 439136,
-        "image": "https://substackcdn.com/feed/podcast/28705/ff72a11ca939f5604f17d4a689071b23.jpg",
+        "itunes_url": "https://podcasts.apple.com/us/podcast/id1499263255?uo=4",
+        "image": "https://ssl-static.libsyn.com/p/assets/b/7/3/b/b73b0174bf234790/podcast-1.png",
+        "description": "After being consistently left out of wellness conversations, Be Well Sis is a podcast dedicated to providing resources for Black millennial women to be their best selves physically, mentally, emotionally, and spiritually. Hosted by Dr. Cassandre Dunbar, the conversations are candid, informative, and unapologetic. Join us!",
+        "title": "Be Well Sis: The Podcast",
+        "podcast_id": 691621,
+        "url": "https://bewellsis.libsyn.com/rss",
         "category": [
-            "News",
-            "Politics",
-            "Commentary"
+            "Education",
+            "Self Improvement",
+            "Health",
+            "Fitness"
         ]
     },
     {
         "weekday": "Wednesday",
-        "description": "How do I sell on Teachers Pay Teachers? How do I make money online as a teacher? How to make money online teaching? How do I grow a teacher Instagram? Why did I quit teaching and what happened next? Whether you are a teacher just looking to get started building a business online, or youre ready to be the next official CEO Teacher, this podcast is for you. \n\nThe CEO Teacher Podcast is a weekly teacher-filled workshop that will fill your ears with actionable strategies that you can take back to your home and get started on today. The CEO Teacher Podcast is hosted by Kayse Morris, creator of The CEO Teacher School Membership and The CEO Teacher Academy membership, home to over 3,000 teacher students where she trains teachers each week how to sell their products on Teachers Pay Teachers and beyond. \n\nHere youll find easy step-by-step strategies for getting more teacher sales online, building a serious social media strategy, mindset shifts, and so much more. In addition to sharing her knowledge, Kayse also interviews real teachers that have gone on to build the teacher business of their dreams. With nearly 1 million downloads, come listen and subscribe to the #1 teacher podcast in the world....and remember that the best is yet to come.",
-        "title": "The CEO Teacher Podcast",
-        "podcast_id": 487640,
-        "image": "https://ssl-static.libsyn.com/p/assets/e/1/2/9/e1299d90010da277bafc7308ab683e82/the-ceo-teacher-podcast-20220817-w3x5tjnhx0.png",
+        "itunes_url": "https://podcasts.apple.com/us/podcast/id1057458646?uo=4",
+        "image": "https://assets.pippa.io/shows/610b01c34d914bfe9b341828/1636094784590-c0f8c96bf98e513aea1c23a62ca8aa6b.jpeg",
+        "description": "A fact based comedy podcast. Each week Melbourne comedians Matt Stewart, Jess Perkins and Dave Warneke take it in turns to research a topic and report back to the class. Hosted on Acast. See acast.com/privacy for more information.",
+        "title": "Do Go On",
+        "podcast_id": 216756,
+        "url": "https://rss.acast.com/do-go-on",
         "category": [
-            "Business",
-            "Marketing"
+            "Comedy",
+            "History"
         ]
     },
     {
         "weekday": "Thursday",
-        "description": "Ever wondered how automation will change the world? Maybe you puzzle over what India could do to ease traffic congestion, or how Chinas aircraft carriers will transform Indian Ocean geopolitics? All Things Policy, a daily podcast brought to you by the Takshashila Institution, brings you all the answers. Every weekday, our researchers break down complex economic and geopolitical ideas through the lens of current events. For everyone from the busy executive to the curious student, All Things Policy is all youll need to understand the world (and appreciate your breakfast) better.",
-        "title": "All Things Policy",
-        "podcast_id": 220534,
-        "image": "https://www.omnycontent.com/d/playlist/e0dce4b3-2eb8-48cb-822c-af1d00e03e20/f87e16b6-f073-436b-91d1-af4d00c69ff1/90da458e-82ee-498b-b694-af4d00c69ffb/image.jpg?t=1668427393&size=Large",
+        "itunes_url": "https://podcasts.apple.com/us/podcast/id960976813?uo=4",
+        "image": "https://content.production.cdn.art19.com/images/cc/12/5c/d2/cc125cd2-fbc9-4270-a8f4-de69b6ddcc86/038181e5cafcb3193b7c615ad5a842aa21640796c0a24ee74936fd2c59f2cd63c8489bd55e1ff12cdc42fa46a64d00346b39b661f64eaec516416a4ffda5e279.jpeg",
+        "description": "New dinosaurs are discovered all the time. Have fun and relax with hosts Garret and Sabrina each week as they explore the latest dinosaur news, chat with paleontology experts, dive deep into a “dinosaur of the day,” go down Oryctodromeus burrows with their fun facts, answer your burning questions, and connect dinosaurs to topics ranging from chocolate to the Titanic and more! Educational and entertaining, I Know Dino is a must listen dinosaur podcast for experts and newcomers alike.",
+        "title": "I Know Dino: The Big Dinosaur Podcast",
+        "podcast_id": 1023401,
+        "url": "https://rss.art19.com/i-know-dino",
         "category": [
-            "News",
-            "Education",
-            "Society",
-            "Culture",
-            "Leisure",
-            "Automotive"
+            "Science",
+            "Education"
         ]
     },
     {
         "weekday": "Friday",
-        "description": "A podcast for the modern day Asian American woman hosted by Melody Cheng, Helen Wu, & Janet Wang. Its no secret that Asian women are lacking in almost all media outlets, and those who are present mostly represent the fashion, beauty, or blogging industries. We started ABG as girlfriends while balancing jobs in finance, technology, & media with corporate careers spanning over a decade. Here, we share our experiences and explore topics as 20/30 something Asian American women working, dating, and living in LA, CA. Grab a glass of wine and lets get this show started ;)",
-        "title": "AsianBossGirl",
-        "podcast_id": 495622,
-        "image": "https://megaphone.imgix.net/podcasts/072ad28a-e35a-11eb-8f11-e79e9de6eb51/image/3075001-1582092618833-2f1adbf794187.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+        "itunes_url": "https://podcasts.apple.com/us/podcast/id1506922972?uo=4",
+        "image": "https://storage.buzzsprout.com/variants/0hj02esdxgeiuhd2opmatysnv41g/60854458c4d1acdf4e1c2f79c4137142d85d78e379bdafbd69bd34c85f5819ad.jpg",
+        "description": "Do you enjoy falling asleep listening to true crime podcasts? Then you‘ll love, Serial Napper! Serial Napper is an international true crime podcast hosted by Canadian Nikki Young. Each episode features a different true crime story, told succinctly the way it happened. Just the facts, ma‘am. My focus is on unsolved crimes that need more attention and supporting victims +their families. Let me guide you through some of the craziest true crime stories you‘ve never heard of.",
+        "title": "Serial Napper",
+        "podcast_id": 513188,
+        "url": "https://feeds.buzzsprout.com/2128733.rss",
         "category": [
             "Society",
             "Culture",
-            "Personal",
-            "Journals",
-            "Business",
-            "Careers"
+            "News",
+            "Commentary",
+            "True Crime"
         ]
     },
     {
         "weekday": "Saturday",
-        "description": "Earth Ancients chronicles the growing (and often suppressed) evidence of known and unknown civilizations, their ruined cities, and artifacts developed from advanced science and technology. Erased from the pages of time, these cultures discovered and charted the heavens, developed medicine and unleashed advancements that parallel and, in many cases, surpass our own. Join us and discover our lost history.Armed with the thousands of anomalous archeological discoveries which have not been covered by conventional science and the media, we can no longer deny our ancient cultural inheritance. Our written history is wrong and we’ve been led to believe that humanity is just a few hundred thousand years old. In fact, the Hindu Yugas advance the notion that Homo Sapiens are millions of years old, and have lived onplanet Earth through a series of rebirths.It’s now a fact that we are the survivors of a series of cataclysmic events that took place approximately 12,000 to 14,000 years ago. Our ancestors may have been aware of these impending disasters and fled underground shelter, or survived in caves; others may have left the planet, but a huge number perished.      Though Earth Ancients does explore some of the popular theories that ancient aliens have visited ourplanet, our philosophy and research paradigm is decidedly Earth-centric, elevating the historical discourseabout human brilliance and ingenuity found in the archaeological evidence.",
-        "title": "Earth Ancients",
-        "podcast_id": 391184,
-        "image": "https://d3wo5wojvuv7l.cloudfront.net/t_rss_itunes_square_1400/images.spreaker.com/original/88d9888baa9b9f147a64a175d3fc032e.jpg",
+        "itunes_url": "https://podcasts.apple.com/us/podcast/id613437137?uo=4",
+        "image": "https://content.production.cdn.art19.com/images/1d/81/dd/18/1d81dd18-9422-455c-be2c-a730b97a09ba/e19c0c12ae69cb7bc563c4f8b92f02b5def7392a0a1c66462a11865ba40eb18d195ba2df19b7036260ffc7c5a3c0dfb58ae8ce69b8e132eb30bf675130352819.jpeg",
+        "description": "Listen to the flagship daily evening newscast on your schedule. The CBS Evening News offers all the latest breaking national and world news and insight into all the stories that impact your world. Original reporting, now when you want it.  ",
+        "title": "CBS Evening News",
+        "podcast_id": 316551,
+        "url": "https://rss.art19.com/cbs-evening-news",
         "category": [
-            "Society",
-            "Culture",
-            "Science",
-            "Social"
+            "News"
         ]
     },
     {
         "weekday": "Sunday",
-        "description": "Tenured professor, registered dietitian nutritionist, and certified exercise physiologist Dr. Neal Malik shares some of the best articles on Health, Fitness, Diet, Nutrition, and Wellness, with commentary. Why bother searching for the best blogs about health & fitness when it can be found and read for you? Think of Optimal Health Daily as an audioblog or blogcast.",
-        "title": "Optimal Health Daily",
-        "podcast_id": 323906,
-        "image": "https://megaphone.imgix.net/podcasts/179f5c46-1733-11ec-86d8-6fde4865f964/image/OHD1500Redo.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+        "itunes_url": "https://podcasts.apple.com/us/podcast/id1067688314?uo=4",
+        "image": "https://megaphone.imgix.net/podcasts/6fb682f0-2003-11ec-83c0-17f79b1a801b/image/OLDLogo20160901.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+        "description": "I read you the best content on personal development, minimalism, productivity, and more, with author permission. Think of Optimal Living Daily as an audioblog or blogcast where the best blogs are narrated for you.",
+        "title": "Optimal Living Daily",
+        "podcast_id": 217043,
+        "url": "https://anchor.fm/s/bc72238/podcast/rss",
         "category": [
             "Health",
-            "Fitness"
+            "Fitness",
+            "Mental",
+            "Education",
+            "Self Improvement"
         ]
     }
-];
+]
