@@ -10,7 +10,7 @@ export function getPodcasts(categories: string[]): Promise<Podcast[]> {
 
     if (categories.length > 0) {
         const catString = categories.join('&cat=',);
-        url = `{api_url/random-week?cat=${catString}`
+        url = `${api_url}/random-week?cat=${catString}`
     }
 
     return fetch(url).then(res => res.json())
