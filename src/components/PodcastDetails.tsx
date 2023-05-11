@@ -5,6 +5,9 @@ import {HeartIcon} from "@heroicons/react/24/solid";
 import {useGlobal} from "../util/state";
 import parse from "html-react-parser";
 import {getImageUrl} from "../util/apiCalls";
+import {createSpotifyLink} from "../util/util";
+import spotify from "../assets/spotify.png";
+import apple from "../assets/apple_podcasts.png";
 
 function PodcastDetails({podcast}: { podcast: Podcast }) {
     const [open, setOpen] = useState(false);
@@ -69,11 +72,23 @@ function PodcastDetails({podcast}: { podcast: Podcast }) {
                                 }</div>
                             </div>
                         </CardBody>
-                        <div className="flex justify-end items-center p-4 pt-0 gap-2">
-                            <IconButton color="amber" className="px-12"
-                                        onClick={() => window.open(podcast.url, "_blank")}>Link</IconButton>
-                            <IconButton color="red" className=""><HeartIcon
-                                className="h-5 w-5"/></IconButton>
+                        <div className="flex justify-between items-center p-4 pt-0 gap-2">
+                            <div>
+                                <button
+                                    className="w-8 h-8 mr-4"
+                                    onClick={() => window.open(createSpotifyLink(podcast.title), "_blank")}>
+                                    <img src={spotify}/>
+                                </button>
+                                <button
+                                    className="w-8 h-8"
+                                    onClick={() => window.open(podcast.itunes_url, "_blank")}>
+                                    <img src={apple}/>
+                                </button>
+                            </div>
+                            <div><IconButton color="amber" className="px-8 mr-2"
+                                             onClick={() => window.open(podcast.url, "_blank")}>Feed</IconButton>
+                                <IconButton color="red" className=""><HeartIcon
+                                    className="h-5 w-5" onClick={() => toggleAndClose()}/></IconButton></div>
 
                         </div>
                     </div>
