@@ -2,6 +2,8 @@
 
 Frontend for PodcastPill. Backend can be found here: [PodcastPill](https://github.com/nikoisonfire/PodcastPill)
 
+[Demo](https://podcastpill.netlify.app/)
+
 ## Tech
 
 - React (with Vite)
